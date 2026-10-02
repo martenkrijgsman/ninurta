@@ -12,8 +12,9 @@ The user directs; you build. **The user does not code.**
 ## Git workflow
 
 - **Work on a branch named after the task**, for example `task/2.3-wall-jump`. Never commit straight to `main`.
-- **Run the tests before every commit.** All tests must pass. If the test runner does not exist yet (before task 0.5), at least confirm the project loads without errors:
-  `C:\Tools\Godot_v4.7.2-stable_win64_console.exe --headless --path game --quit`
+- **Run the tests before every commit.** All tests must pass. From the repo root:
+  `powershell -NoProfile -ExecutionPolicy Bypass -File tools/run-tests.ps1` (exit code 0 = all passed).
+  Tests use GUT and live in `game/tests/` (files named `test_*.gd`, extending `GutTest`). Add tests for every new system. The user can double-click `run-tests.bat` instead.
 - Commit in small, clearly described steps. Push the branch when the task is done.
 - Merge into `main` only after the user has playtested and said it's good. Then **tick the finished task in `docs/PLAN.md`** (`- [ ]` becomes `- [x]`).
 - Images, audio, fonts and `.aseprite`/`.pxo` files go through Git LFS (see `.gitattributes`). Never commit build output or the `.godot/` folder.
