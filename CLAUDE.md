@@ -9,6 +9,15 @@ The user directs; you build. **The user does not code.**
 2. **Do one task per session.** The user will say something like "Do task 2.3 from the plan". Do that task and nothing else. If you spot other problems, note them in your summary instead of fixing them.
 3. **If the task is bigger than expected**, stop, split it into smaller tasks, add them to `docs/PLAN.md`, and tell the user.
 
+## Staying in sync with the design chats
+
+Design work (specs, story, decisions) happens in separate Claude project chats, which write their results straight into `docs/` on this computer or push them to GitHub. So:
+
+- **At the start of every session**, run `git status` and `git pull`. If there are uncommitted changes in `docs/` that you did not make, they came from a design chat: read `docs/CHANGELOG.md` to see what changed, then commit them on a branch called `docs/sync-<date>` and merge it into `main` before starting your task (docs-only changes don't need a playtest).
+- **Read the newest entries of `docs/CHANGELOG.md`** before you start, so you know about recent decisions.
+- **At the end of every task**, add a line to the top of `docs/CHANGELOG.md`: date, `[code]`, task number, and one line on what changed. Also log any decision the user made during the session in the plan's Decisions log.
+- `docs/PLAN.md` is the master plan for everyone. Tick tasks there; never keep a separate task list anywhere else.
+
 ## Git workflow
 
 - **Work on a branch named after the task**, for example `task/2.3-wall-jump`. Never commit straight to `main`.
