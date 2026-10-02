@@ -15,6 +15,7 @@ The user directs; you build. **The user does not code.**
 - **Run the tests before every commit.** All tests must pass. From the repo root:
   `powershell -NoProfile -ExecutionPolicy Bypass -File tools/run-tests.ps1` (exit code 0 = all passed).
   Tests use GUT and live in `game/tests/` (files named `test_*.gd`, extending `GutTest`). Add tests for every new system. The user can double-click `run-tests.bat` instead.
+- **Windows build:** `powershell -NoProfile -ExecutionPolicy Bypass -File tools/build-windows.ps1` makes `builds/windows/NinurtaSharur.exe` (the user can double-click `build-windows.bat`). Test files are excluded from the build.
 - Commit in small, clearly described steps. Push the branch when the task is done.
 - Merge into `main` only after the user has playtested and said it's good. Then **tick the finished task in `docs/PLAN.md`** (`- [ ]` becomes `- [x]`).
 - Images, audio, fonts and `.aseprite`/`.pxo` files go through Git LFS (see `.gitattributes`). Never commit build output or the `.godot/` folder.
