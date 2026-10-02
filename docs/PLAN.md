@@ -38,7 +38,7 @@ A pixel-art metroidvania where Ninurta, god of war and the hunt, fights his way 
 | Pixel art editor | Pixelorama or LibreSprite (both free) | Clean-up of generated sprites |
 | Cuneiform font | Noto Sans Cuneiform (SIL Open Font Licence) as the source for a hand-cleaned pixel sign set | Free to ship commercially; Unicode-correct |
 | Audio tools | AI music generation, LMMS, Audacity, jsfxr, CC0 sound libraries | All free or permitted |
-| Input | Keyboard first, gamepad later | Godot's input map makes adding a pad cheap |
+| Input | Keyboard first (arrows, Z jump, X attack, C dash, V parry, S invoke, A heal), gamepad later | Godot's input map makes adding a pad cheap |
 | Platform | Windows PC (Ryzen 5700X, 32 GB RAM, RTX 3070) | |
 
 ## How we work
@@ -83,7 +83,7 @@ Phases 2–7 run in order in grey boxes; art (A) and audio (B) tasks run in para
 
 ### Phase 1 — Design documents (in the Claude project)
 
-- [ ] 1.1 Game design document v1: core loop, controls, ability list, progression
+- [x] 1.1 Game design document v1: core loop, controls, ability list, progression (`docs/design/GDD.md`)
 - [ ] 1.2 Story bible: Anzu as the frame, Lugal-e and Angim chapters, the scholar, characters
 - [ ] 1.3 Sharur voice bible: personality rules, his arc, 30 sample lines
 - [ ] 1.4 Tablet mechanic spec: registers, sign zones, invocation, first 6–8 sign-powers
@@ -122,6 +122,7 @@ Phases 2–7 run in order in grey boxes; art (A) and audio (B) tasks run in para
 - [ ] 4.5 First two sign-powers (placeholders, e.g. storm wind and lightning)
 - [ ] 4.6 Power unlocking and persistence
 - [ ] 4.7 Broken tablets: gaps in the text as traversal gaps and secrets; fragments that restore lines and open paths
+- [ ] 4.8 Joining: two-faced fragments slotted into sockets at a cylinder seal, choosing which face is up; joins change the room straight away and are saved (see GDD §5.4)
 
 ### Phase 5 — Dialogue and text
 
@@ -210,7 +211,6 @@ Broadly Mesopotamian: lyre, frame drums, reed pipes and voice, in the spirit of 
 - Script period (recommendation: Neo-Assyrian)
 - Sign-power list (candidates: storm wind, lightning, flood, mountain or stone)
 - Sharur's voice: blips or AI voice acting
-- Wings as the glide
 
 ## Decisions log
 
@@ -222,3 +222,8 @@ Broadly Mesopotamian: lyre, frame drums, reed pipes and voice, in the spirit of 
 | 2 Oct 2026 | Damage is forgiving; combat weight comes from wind-ups, hit-stop and parries |
 | 2 Oct 2026 | Godot 4 as the engine |
 | 2 Oct 2026 | Step-based plan with no deadlines |
+| 2 Oct 2026 | GDD v1: Ninurta starts with run and jump only; wall jump, dash and glide (his wings) unlock in the slice |
+| 2 Oct 2026 | Sign-powers are invoked at sign zones and leave Sharur a short combat charge |
+| 2 Oct 2026 | Keyboard layout: arrows + Z/X/C/V, S invoke, A heal |
+| 2 Oct 2026 | Checkpoints are cylinder seals; beaten bosses become trophies; no skipping boss phases on retry |
+| 2 Oct 2026 | Obverse/reverse folded into broken tablets: two-faced fragments joined into sockets at seals, shaping boss arenas (and later whole levels). New task 4.8 |
