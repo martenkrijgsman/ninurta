@@ -38,7 +38,7 @@ From `docs/PLAN.md`; every design choice should serve at least one.
 
 ### 3.1 Moment to moment (seconds)
 
-Run → jump / wall-jump / dash / glide across a register → meet enemies → read their wind-up → strike, parry or dodge → Sharur comments → keep moving.
+Run → jump / slide / wall-jump across a register → meet enemies → read their wind-up → strike, parry or dodge → Sharur comments → keep moving.
 
 ### 3.2 Room to room (minutes)
 
@@ -61,9 +61,9 @@ All keys are rebindable (task 6.5). Gamepad comes later and maps 1:1.
 | Move | ← / → | Left stick | |
 | Look up / aim up | ↑ | Up | Up-attack; enter doorways |
 | Crouch / aim down | ↓ | Down | ↓ + attack in air = slam |
-| Jump | Z | A | Hold for higher jump; hold in mid-air to glide |
+| Jump | Z | A | Hold for higher jump |
 | Attack (Sharur) | X | X | Tap for combo; hold to charge a smash |
-| Dash | C | RB | Ground and air |
+| Slide | C | RB | Ground only; under low gaps and through enemies |
 | Parry | V | LB | Short window; perfect parry opens a riposte |
 | Invoke sign | S | Y | Only at a sign zone (see §5.3) |
 | Heal | A | B | Uses one offering charge |
@@ -80,12 +80,12 @@ Arrows under the right hand, the action keys along Z X C V with A and S just abo
 | --- | --- | --- |
 | Run | Start | Fast, with a short acceleration so it feels weighty but not sluggish |
 | Variable jump | Start | Tap = short hop, hold = full jump; coyote time and jump buffering make it forgiving |
-| Wall slide and wall jump | Unlocked in the slice (1st) | Slide slowly down walls; kick off to climb shafts |
-| Dash | Unlocked in the slice (2nd) | Short burst on the ground or once in the air; no invulnerability at first |
-| Glide | Unlocked in the slice (3rd) | Hold jump in the air to spread Ninurta's wings and fall slowly; steer left and right |
-| Later abilities | Full game | Candidates: dash through enemy attacks, double jump on a gust, ground pound that breaks clay, swim in floodwater, climb along ruling lines |
+| Slide | Start | Blasphemous-style dodge: a fast low slide along the ground. Passes under low gaps and through enemies, with a brief window where most attacks miss. Ground only |
+| Wall slide and wall jump | Unlocked midway through the slice | Slide slowly down walls; kick off to climb shafts |
+| Glide | Full game | Hold jump in the air to spread Ninurta's wings and fall slowly; steer left and right. Not in the slice |
+| Later abilities | Full game | Candidates: air dash, double jump on a gust, ground pound that breaks clay, swim in floodwater, climb along ruling lines |
 
-Ninurta starts with only run and jump, and the slice teaches the rest of the kit one ability at a time (decided 2 Oct 2026). With 8–12 rooms and three unlocks, each new ability gets roughly three rooms: one to learn it safely, one to combine it with what came before, one to use it under pressure. The order (wall jump, dash, glide) is a suggestion for the vertical slice spec (1.6) to confirm. Glide comes last because it shows off the wings from the Nimrud relief and opens the long horizontal gaps that lead to the boss.
+Wall jump is the slice's one movement unlock; the start kit is run, jump and slide (decided 2 Oct 2026, replacing an earlier plan with three unlocks). One unlock gives the 8–12 rooms room to breathe: the first half of the chapter is built around running, jumping and sliding, the wall jump arrives around the middle, and the second half re-opens earlier shafts with it. Glide is saved for the full release, where it can headline a chapter of its own.
 
 ### 5.2 Combat with Sharur
 
@@ -100,7 +100,7 @@ Sharur is the only weapon. Every attack has a visible wind-up, a short active wi
 | Downward slam | ↓ + X in the air | Lands with a shockwave; also a traversal tool |
 | Parry | V | Timed block; a perfect parry staggers the enemy |
 | Riposte | X right after a perfect parry | Heavy finisher with long hit-stop |
-| Dash | C | Repositioning; cancels recovery only late in a swing |
+| Slide | C | Dodge and reposition; cancels recovery only late in a swing |
 
 Hit-stop, screen shake and knockback on every hit; exact frame counts are for the combat feel spec (1.5).
 
@@ -181,7 +181,7 @@ Every enemy telegraphs: a readable wind-up pose and a sound before each attack. 
 | Type | Behaviour | Teaches |
 | --- | --- | --- |
 | Melee | Walks, closes in, heavy telegraphed swing | Spacing and parrying |
-| Ranged | Keeps distance, throws or spits | Closing distance with dash; parrying projectiles **[proposal]** |
+| Ranged | Keeps distance, throws or spits | Closing distance with the slide; parrying projectiles **[proposal]** |
 | Flying | Swoops in arcs | Up-attacks and air attacks |
 | Boss | Several phases; each phase adds or changes one attack | Everything above, under pressure |
 
@@ -195,15 +195,15 @@ Every enemy telegraphs: a readable wind-up pose and a sound before each attack. 
 
 ## 11. Scope of version 1 (the vertical slice)
 
-**In:** the scholar's study and zoom; one tablet chapter of 8–12 rooms; run and jump at the start, with wall jump, dash and glide unlocked along the way; two sign-powers with their combat charge; three enemy types and a boss; cylinder-seal checkpoints; broken-tablet gaps and a small joining system (a few true joins, three or four loose fragments, a boss arena with two or three sockets); health upgrades; one boss trophy; saving; map; dialogue in cuneiform; music and sound; Windows build.
+**In:** the scholar's study and zoom; one tablet chapter of 8–12 rooms; run, jump and slide from the start, with wall jump unlocked midway; two sign-powers with their combat charge; three enemy types and a boss; cylinder-seal checkpoints; broken-tablet gaps and a small joining system (a few true joins, three or four loose fragments, a boss arena with two or three sockets); health upgrades; one boss trophy; saving; map; dialogue in cuneiform; music and sound; Windows build.
 
-**Out for now:** gamepad, more than one chapter, joins that rebuild whole registers, the trophy hub as a place you visit, achievements, languages other than English, Steam.
+**Out for now:** glide, gamepad, more than one chapter, joins that rebuild whole registers, the trophy hub as a place you visit, achievements, languages other than English, Steam.
 
 ## 12. Decisions made in this document (2 Oct 2026)
 
-- Ninurta starts with run and jump only; wall jump, dash and glide are unlocked in the slice.
+- Ninurta starts with run, jump and a Blasphemous-style slide; wall jump is the slice's one movement unlock; glide waits for the full game.
 - Sign-powers are invoked at sign zones and leave Sharur with a short combat charge.
-- Keyboard layout: arrows to move, Z jump, X attack, C dash, V parry, S invoke, A heal.
+- Keyboard layout: arrows to move, Z jump, X attack, C slide, V parry, S invoke, A heal.
 - Checkpoints are cylinder seals; beaten bosses become trophies.
 - No skipping boss phases on retry.
 - Obverse/reverse is folded into broken tablets: two-faced fragments joined into sockets at seals, shaping boss arenas in the slice and possibly whole levels later.
@@ -212,5 +212,5 @@ Every enemy telegraphs: a readable wind-up pose and a sound before each attack. 
 
 - Slice chapter and boss, the scholar, title, script period: story bible (1.2) and slice spec (1.6).
 - Which two sign-powers the slice uses, and the joining rules in detail: tablet mechanic spec (1.4).
-- The order of the three slice unlocks: slice spec (1.6).
+- Where exactly the wall jump is found: slice spec (1.6).
 - What the trophy hub is (Angim in Nippur is the candidate): story bible (1.2).

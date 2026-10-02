@@ -10,7 +10,7 @@ A pixel-art metroidvania where Ninurta, god of war and the hunt, fights his way 
 
 1. **The tablet is the level.** Play happens between the ruling lines of a clay tablet. The signs floating behind Ninurta are both the story's text and his source of power: stand at the right word and Sharur draws lightning, wind or flood out of it.
 2. **Heavy, readable combat.** Blasphemous-style weight: visible wind-ups, hit-stop, parries, knockback. Damage is forgiving, not punishing.
-3. **Flowing traversal.** Lost Crown-style platforming with wall-jumps, dashes and gliding on Ninurta's wings, generous checkpoints and no cheap deaths.
+3. **Flowing traversal.** Lost Crown-style platforming with wall-jumps and a Blasphemous-style slide (gliding on Ninurta's wings comes in the full game), generous checkpoints and no cheap deaths.
 4. **Scholarly, with licence.** Pentiment-style framing: a scholar reads the tablets and we zoom in to play them. Real sources, real cuneiform, creative liberties where they serve the game. Broken tablets become mechanics.
 5. **Sharur's mouth.** An irreverent shit-talker who wants Ninurta to win but has to be convinced he deserves it. His arc is the emotional spine.
 
@@ -38,7 +38,7 @@ A pixel-art metroidvania where Ninurta, god of war and the hunt, fights his way 
 | Pixel art editor | Pixelorama or LibreSprite (both free) | Clean-up of generated sprites |
 | Cuneiform font | Noto Sans Cuneiform (SIL Open Font Licence) as the source for a hand-cleaned pixel sign set | Free to ship commercially; Unicode-correct |
 | Audio tools | AI music generation, LMMS, Audacity, jsfxr, CC0 sound libraries | All free or permitted |
-| Input | Keyboard first (arrows, Z jump, X attack, C dash, V parry, S invoke, A heal), gamepad later | Godot's input map makes adding a pad cheap |
+| Input | Keyboard first (arrows, Z jump, X attack, C slide, V parry, S invoke, A heal), gamepad later | Godot's input map makes adding a pad cheap |
 | Platform | Windows PC (Ryzen 5700X, 32 GB RAM, RTX 3070) | |
 
 ## How we work
@@ -95,8 +95,8 @@ Phases 2–7 run in order in grey boxes; art (A) and audio (B) tasks run in para
 - [ ] 2.1 Player scene, state machine, run, gravity, variable-height jump
 - [ ] 2.2 Coyote time, jump buffering, corner forgiveness
 - [ ] 2.3 Wall slide and wall jump
-- [ ] 2.4 Ground and air dash
-- [ ] 2.5 Glide
+- [ ] 2.4 Slide: Blasphemous-style ground dodge, under low gaps and through enemies
+- [ ] 2.5 Glide (deferred to the full game; skip for the slice)
 - [ ] 2.6 Camera: smooth follow, look-ahead, room bounds
 - [ ] 2.7 Movement test level plus one tuning file for all movement values
 - [ ] 2.8 Feel pass: user plays, lists changes, agent tunes
@@ -165,14 +165,14 @@ Phases 2–7 run in order in grey boxes; art (A) and audio (B) tasks run in para
 
 ## Art sub-project
 
-All art is pixel art at 640 × 360, locked to one shared palette (about 32 colours from clay, bitumen, lapis lazuli, carnelian, gold, gypsum, plus storm whites and blues). Ninurta's design starts from the Nimrud relief: horned crown, braided beard, tasselled kilt, wings that become his glide.
+All art is pixel art at 640 × 360, locked to one shared palette (about 32 colours from clay, bitumen, lapis lazuli, carnelian, gold, gypsum, plus storm whites and blues). Ninurta's design starts from the Nimrud relief: horned crown, braided beard, tasselled kilt, wings that will become his glide in the full game.
 
 Pipeline: user sketch or description → AI concept → script snaps to palette and pixel grid → clean-up in Pixelorama → script exports sprite sheets and Godot import settings.
 
 - [ ] A.1 Style guide and palette, with a mood board of reliefs and tablets
 - [ ] A.2 Tooling scripts: palette snap, grid downscale, sprite-sheet packing
 - [ ] A.3 Ninurta concept, then idle and run sprites
-- [ ] A.4 Ninurta's full animation set: jump, fall, wall slide, dash, glide, attacks, parry, hurt, death, invoke
+- [ ] A.4 Ninurta's full animation set: jump, fall, wall slide, slide, attacks, parry, hurt, death, invoke
 - [ ] A.5 Sharur: weapon design, in-hand sprite, talking portrait
 - [ ] A.6 Tablet tileset: clay surfaces, ruling lines, cracks, broken edges
 - [ ] A.7 Pixel sign set: the first 60 or so cuneiform signs the slice needs
@@ -187,7 +187,7 @@ Pipeline: user sketch or description → AI concept → script snaps to palette 
 Broadly Mesopotamian: lyre, frame drums, reed pipes and voice, in the spirit of the Hurrian hymn reconstructions and Peter Pringle's Gilgamesh performances (mood references only; we make our own music).
 
 - [ ] B.1 Audio direction: instruments, moods per area, reference list
-- [ ] B.2 Sound effects: footsteps, mace impacts, parry, dash, glide, sign invocation
+- [ ] B.2 Sound effects: footsteps, mace impacts, parry, slide, sign invocation
 - [ ] B.3 Music: scholar's study theme, slice exploration track, combat layer, boss theme
 - [ ] B.4 Adaptive music in Godot: layers that fade in when combat starts
 - [ ] B.5 Voices: decide between voiced "blips" or AI voice acting for Sharur
@@ -226,4 +226,5 @@ Broadly Mesopotamian: lyre, frame drums, reed pipes and voice, in the spirit of 
 | 2 Oct 2026 | Sign-powers are invoked at sign zones and leave Sharur a short combat charge |
 | 2 Oct 2026 | Keyboard layout: arrows + Z/X/C/V, S invoke, A heal |
 | 2 Oct 2026 | Checkpoints are cylinder seals; beaten bosses become trophies; no skipping boss phases on retry |
+| 2 Oct 2026 | Revised: start kit is run, jump and a Blasphemous-style ground slide; wall jump is the slice's only movement unlock; glide moves to the full game |
 | 2 Oct 2026 | Obverse/reverse folded into broken tablets: two-faced fragments joined into sockets at seals, shaping boss arenas (and later whole levels). New task 4.8 |
