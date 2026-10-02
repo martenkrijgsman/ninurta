@@ -77,7 +77,7 @@ Phases 2–7 run in order in grey boxes; art (A) and audio (B) tasks run in para
 - [ ] 0.1 Install Godot 4 (standard build), Git for Windows and Git LFS
 - [ ] 0.2 Create a private GitHub repo for the game
 - [ ] 0.3 Install the Claude desktop app and open Claude Code on the repo folder
-- [ ] 0.4 Agent: scaffold the repo (folders, `.gitignore`, LFS rules, `CLAUDE.md`, this plan in `docs/`), and an empty Godot project with 640 × 360 pixel-perfect settings. Done when it opens in Godot
+- [x] 0.4 Agent: scaffold the repo (folders, `.gitignore`, LFS rules, `CLAUDE.md`, this plan in `docs/`), and an empty Godot project with 640 × 360 pixel-perfect settings. Done when it opens in Godot
 - [ ] 0.5 Agent: add GUT, one sample test and a one-command test runner
 - [ ] 0.6 Agent: Windows export preset and build script. Done when the user can double-click an `.exe`
 
